@@ -1,0 +1,329 @@
+<html>
+<header>
+   <h1   align = 'center'  >   # Rock  $  Paper  $  Scissor #  </h1>
+</header>
+<body  bgcolor="#3bb4c1">
+<style>
+#first {
+width : 250px ;
+height : 250px ;
+display : block ;
+background-color : #3bb4c1 ;
+position : absolute ;
+left : 450px ;
+top : 100px ;
+}
+
+#second{
+width : 250px ;
+height : 250px ;
+display : block ;
+background-color : #3bb4c1 ;
+position : absolute ;
+left : 950px ;
+top : 100px ;
+}
+
+#b1{
+
+position : absolute ;
+left : 400px ;
+top : 400px ;
+}
+
+
+#b2{
+
+
+position : absolute ;
+left : 520px ;
+top : 400px ;
+}
+
+#b3{
+
+
+position : absolute ;
+left : 640px ;
+top : 400px ;
+}
+
+#c1{
+
+position : absolute ;
+left : 900px ;
+top : 400px ;
+}
+
+
+#c2{
+
+position : absolute ;
+left : 1030px ;
+top : 400px ;
+}
+
+#c3{
+
+position : absolute ;
+left : 1160px ;
+top : 400px ;
+}
+
+#h1{
+
+display : block ;
+position : absolute ;
+left : 550px ;
+top : 350px ;
+
+}
+
+
+#h2{
+
+display : block ;
+position : absolute ;
+left : 1050px ;
+top : 350px ;
+
+
+}
+
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  position: absolute ;
+  top: 500px;
+  left: 750px;
+  
+  
+}
+
+.button:hover {background-color: #3e8e41}
+
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  
+}
+
+#scoreboard{
+
+  left: 50px ;
+  position: absolute;
+  top: 50px;
+}
+
+#score{
+
+left: 10px ;
+position: absolute;
+top: 150px;
+}
+
+.common {
+  display: inline-block ;
+  border-radius: 20px ;
+  background-color: #e62a76;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  width: 110px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.common span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.common span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+
+.common:hover span {
+  padding-right: 25px;
+}
+
+.common:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+#w1,#w2,#l1,#l2,#d {
+font-size: x-large;
+font-weight: 900;
+}
+
+</style>
+
+<script>
+  var data = new Array()
+  data[0] = "https://www.downloadclipart.net/large/50682-hand-holding-paper-clipart.png" ;
+  data[1] = "https://media.giphy.com/media/oFfNaDbT8aY24/giphy.gif" ;
+  data[2] = "https://c.tenor.com/bhoW-NbVdtMAAAAj/cut-scissors.gif";
+
+
+  function paper1(){
+  
+ const paper = document.getElementById("first").innerHTML = '<img  width = "100%" height = "100%"   src="'+data[0]+'" />';  
+  return paper
+}
+
+function rock1(){
+ 
+ const rock = document.getElementById("first").innerHTML = '<img  width = "100%" height = "100%"    src="'+data[1]+'" />';  
+ return rock
+}
+
+function scissor1(){
+  
+ const scissor = document.getElementById("first").innerHTML = '<img  width = "100%" height = "100%"    src="'+data[2]+'" />';  
+ return scissor
+}
+
+function paper2(){
+ 
+  const paper = document.getElementById("second").innerHTML = '<img  width = "100%" height = "100%"   src="'+data[0]+'" />';  
+  return paper
+}
+
+function rock2(){
+  
+ const rock = document.getElementById("second").innerHTML = '<img  width = "100%" height = "100%"    src="'+data[1]+'" />';  
+    return rock
+}
+
+function scissor2(){
+
+ const scissor = document.getElementById("second").innerHTML = '<img  width = "100%" height = "100%"    src="'+data[2]+'" />';  
+    return scissor
+}
+
+
+function check(){
+   const paper = '<img width="100%" height="100%" src="'+data[0]+'">';
+   const rock = '<img width="100%" height="100%" src="'+data[1]+'">';
+   const scissor = '<img width="100%" height="100%" src="'+data[2]+'">';
+    var ans = []
+    one = document.getElementById("first").innerHTML;
+    two = document.getElementById("second").innerHTML ;
+    if ((one == paper && two == rock ) || (one == rock && two == scissor ) || (one == scissor  && two == paper) ){
+        var wb = document.getElementById("w1").innerHTML ;
+       var lb = document.getElementById("l2").innerHTML ;
+
+       wbb = Number(wb) + 1 ;
+       lbb = Number(lb) + 1 ;
+       
+        ans[0] = document.getElementById("w1").innerHTML = wbb ;
+        ans[1] = document.getElementById("l2").innerHTML = lbb ;
+        return ans  
+    }
+    else if (( one == paper && two == paper ) || (one == rock && two == rock) || (one == scissor && two == scissor )) {
+        a = document.getElementById("d").innerHTML 
+        b = Number(a) + 1 
+        return document.getElementById("d").innerHTML = b
+    }
+    else if((one == rock && two == paper ) || (one == scissor && two == rock ) || (one == paper  && two == scissor)) {
+       
+       var wa = document.getElementById("w2").innerHTML ;
+       var la = document.getElementById("l1").innerHTML ;
+
+       wab = Number(wa) + 1 ;
+       lab = Number(la) + 1 ;
+       
+        ans[0] = document.getElementById("w2").innerHTML = wab ;
+        ans[1] = document.getElementById("l1").innerHTML = lab ;
+        return ans 
+        
+    }
+        
+}
+
+
+
+
+      
+</script>
+
+
+
+<div  bgcolor = "#3bb4c1" id="first" align="center" > </div> 
+<div  bgcolor = "#3bb4c1"  id = "second" > </div>
+
+
+<h1 id = "scoreboard"> Score Board</h1>
+
+<table id = "score"  bgcolor = "white"  width = "300px"  height = "250px" >
+<tr bgcolor = "#FA8072">
+    <td  width = "100px"  bgcolor="white" border = "2px"  ><img    height = "100%"  width = "100%" src = "https://thumbs.gfycat.com/RegalAssuredGossamerwingedbutterfly-size_restricted.gif" /></td>
+    <td  border = "2px"  ><h2  style = "text-align: center "> Player 1</h2></td>
+    <td  border = "2px"  ><h2 style = "text-align: center "> player 2</h2></td>
+
+</tr>
+
+
+<tr bgcolor = "0D7680">
+    <td  align = "center" border = "2px"  ><h2  style = "text-align: center " > Won</h2></td>
+    <td   align = "center"  border = "2px"   id = "w1">0</td>
+    <td   align = "center" border = "2px"   id = "w2">0</td>
+</tr>
+
+<tr bgcolor = "#FFDAB9">
+    <td  border = "2px"  ><h2  style = "text-align: center "> Lost</h2></td>
+    <td align = "center"  border = "2px"   id = "l1">0</td>
+    <td  align = "center" border = "2px"   id = "l2">0</td>
+</tr>
+<tr bgcolor = "36AF57">
+    <td  border = "2px"  ><h2  style = "text-align: center " > Draw</h2></td>
+    <td  colspan="2"  align = "center"  border = "2px"   id = "d">0</td>
+    
+</tr>
+
+</table>
+<br />
+<br />
+
+<h2  id = "h1"> Player 1 </h2>
+<button class= "common" id = "b1" onclick=" paper1() " style="vertical-align:middle"><span>paper </span> </button>
+<button  class= "common" id = "b2" onclick=" rock1() " style="vertical-align:middle"> <span>rock </span> </button>
+<button class = "common" id = "b3" onclick=" scissor1() " style="vertical-align:middle"> <span>scissor</span> </button>
+
+<h2  id = "h2"> Player 2 </h2>
+
+<button  class = "common" id = "c1" onclick=" paper2() " style="vertical-align:middle"> <span>paper </span>  </button>
+<button  class = "common" id = "c2" onclick=" rock2() " style="vertical-align:middle"> <span>rock </span> </button>
+<button  class = "common"id = "c3" onclick=" scissor2() " style="vertical-align:middle"> <span>scissor </span>  </button>
+
+<button class = "button"  onclick = 'check()'> Check </button>
+
+
+</body>
+
+
+
+</html>
