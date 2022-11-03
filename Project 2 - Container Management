@@ -1,0 +1,73 @@
+
+In the console  
+    npm init 
+    npm install express child_process
+    
+
+
+𝐦𝐲𝐝𝐨𝐜𝐤𝐞𝐫.𝐡𝐭𝐦𝐥
+
+          <html>
+
+                  <form action = "/run"  />
+
+                          <h1> Launching Container </h1>
+
+                          enter the Container name <input name = "cname" />
+                          enter the Container image <input name = "cimage" />
+
+                          <br/>
+                          <input type = "submit"  />
+
+                  </form>
+          </html>
+
+
+
+
+
+
+𝐬𝐞𝐫𝐯𝐞𝐫.𝐣𝐬
+
+
+
+                    const express = require("express")
+
+                    const app = express()
+
+                    const {exec} = require("child_process")
+
+
+                    function startserver(){
+                            console.log("server started")
+                    }
+
+
+
+                    app.get("/" , function(req,res){
+                            res.sendFile(__dirname + "/mydocker.html")
+                    })
+
+                    app.get("/run" , function (req ,res){
+                            const cimg = req.query.cimage ;
+                            const cname = req.query.cname ;
+                            exec("docker run -dit  --name " + "" +cname +"" + cimg , (err,stdout,stderr) => {
+                                    res.send(stdout) })
+                    })
+
+                    app.get("/ps" , function(req , res){
+                    exec("docker ps " , (err,stdout , stderr) => {
+                            res.send(stdout) })
+                    })
+
+
+                    app.listen(4000 , startserver)
+
+
+
+
+node server.js
+
+
+
+
